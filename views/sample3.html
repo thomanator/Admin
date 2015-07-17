@@ -1,0 +1,31 @@
+<html>
+  <head>
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script> 
+  </head>
+  <body>
+    <form>
+      First name <input id  = "fname" type = "text"></input>
+	  Last name  <input id =  "lname" type = "text"></input>
+	  Username   <input id = "uname" type = "text"></input>
+	  Password   <input id = "pword" type = "password"></input>
+	  <button id = "butt"> REGISTER </button>
+    </form>	
+	<p id = demo></p>
+	<script>
+	
+	  $(document).ready(function(){
+        $('#butt').click(function(){
+		  var firstName,lastName,userName,passWord;
+		  var socket = io();
+		  firstName = $('#fname').val();
+		  lastName = $('#lname').val();
+		  userName = $('#uname').val();
+		  passWord = $('#pword').val();
+		  socket.emit('blah',{a : firstName,b : lastName,c : userName,d : passWord});
+		});
+	});
+	   document.getElementById('demo').innerHTML = firstName + lastName;
+	</script>
+  </body>
+</html>
