@@ -13,18 +13,21 @@
     </form>	
 	<p id = demo></p>
 	<script>
-	
+		var socket = io.connect();
 	  $(document).ready(function(){
-        $('#butt').click(function(){
-		  var firstName,lastName,userName,passWord;
-		  var socket = io();
-		  firstName = $('#fname').val();
-		  lastName = $('#lname').val();
-		  userName = $('#uname').val();
-		  passWord = $('#pword').val();
-		  socket.emit('blah',{a : firstName,b : lastName,c : userName,d : passWord});
+
+      $('#butt').click(function(){
+			  console.log('heheheh')
+			  var firstName,lastName,userName,passWord;
+			  
+			  firstName = $('#fname').val();
+			  lastName = $('#lname').val();
+			  userName = $('#uname').val();
+			  passWord = $('#pword').val();
+			  console.log('here')
+			  socket.emit('blah',{a : firstName,b : lastName,c : userName,d : passWord});
+			});
 		});
-	});
 	   document.getElementById('demo').innerHTML = firstName + lastName;
 	</script>
   </body>
