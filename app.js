@@ -6,9 +6,10 @@ var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 var url = 'mongodb://localhost:27017/kbase';
 
-app.set('views',__dirname);
+// app.set('views',__dirname);
+app.set('views', __dirname+'/views');
 app.set('view engine','jade');
-
+// app.use(express.static(__dirname + './views'));
 
 
 app.get('/',function(req,res) {
@@ -31,6 +32,7 @@ app.get('/register',function(req,res){
 io.on('connection',function(socket) {
   console.log('connected');
   socket.on('blah',function(msg) {
+    // cb(true);
 	 console.log('entered socket')
     MongoClient.connect(url, function (err, db) {
 	  
